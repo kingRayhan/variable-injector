@@ -16,6 +16,17 @@ To install the Replacer package, simply run the following command:
 npm install variable-injector
 ```
 
+**API Documentation**
+
+The package exports a single function `variableInjector(obj: {[key:string]:any}, variableIdentifier: string, data: string)`
+
+**Parameters**
+
+- `obj`: an object containing key-value pairs for variable substitution. Keys should match the placeholders in the `data` string.
+- `data`: a string containing placeholders for variable substitution. Placeholders should match the keys in the `obj` object.
+- `variableIdentifier`: array of string that represents the variable placeholder in the `data` string. For example, if the placeholders in `data` string are in the format of `{{key}}`, then the `variableIdentifier` should be `"{{_}}"`.
+  default: `["#_#", "{{_}}", "%_%"]`
+
 ## Usage
 
 Using the Replacer package is easy. Simply pass in an object containing your variables and their values, the variable syntax you want to use, and the string you want to replace the variables in.
