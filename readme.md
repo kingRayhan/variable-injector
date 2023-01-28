@@ -18,14 +18,19 @@ npm install variable-injector
 
 **API Documentation**
 
+```js
+injector(data: string, variables: { [key: string]: any }, identifier: string): string
+```
+
 The package exports a single function `variableInjector(obj: {[key:string]:any}, variableIdentifier: string, data: string)`
 
 **Parameters**
 
-- `obj`: an object containing key-value pairs for variable substitution. Keys should match the placeholders in the `data` string.
-- `data`: a string containing placeholders for variable substitution. Placeholders should match the keys in the `obj` object.
-- `variableIdentifier`: array of string that represents the variable placeholder in the `data` string. For example, if the placeholders in `data` string are in the format of `{{key}}`, then the `variableIdentifier` should be `"{{_}}"`.
-  default: `["#_#", "{{_}}", "%_%"]`
+- `data`: The string which contains the variables to be replaced.
+- `variables`: An object containing the key-value pairs of variables to be replaced in the data string.
+- `identifier`: A string indicating the starting and ending characters of the variables to be replaced.
+
+The function returns the data string with the variables replaced by their corresponding values in the variables object.
 
 ## Usage
 

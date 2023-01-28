@@ -14,17 +14,17 @@
  *
  */
 function replacer(
-  obj: { [key: string]: any },
+  variables: { [key: string]: any },
   data: string,
   variableIdentifiers: string[] = ["#_#", "{{_}}", "%_%"]
 ) {
   let newString = data;
-  const keys = Object.keys(obj);
+  const keys = Object.keys(variables);
   keys.forEach((key) => {
     variableIdentifiers.forEach((identifier) => {
       const [start, end] = identifier.split("_");
       let regEx = new RegExp(`${start}\\s*${key}\\s*${end}`, "g");
-      newString = newString.replace(regEx, obj[key]);
+      newString = newString.replace(regEx, variables[key]);
     });
   });
 
