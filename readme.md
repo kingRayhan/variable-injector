@@ -18,28 +18,66 @@ npm install variable-injector
 
 **API Documentation**
 
-The package exports a single function `variableInjector(obj: {[key:string]:any}, variableIdentifier: string, data: string)`
+```js
+injector(data: string, variables: { [key: string]: any }, variableIdentifiers: string[] = ["#_#", "{{_}}", "%_%"]): string
+```
 
-**Parameters**
+This function takes in 3 arguments, the string which needs to be modified, the variables which needs to replace in the string and the variable identifier which is used to find the variables in the string.
 
-- `obj`: an object containing key-value pairs for variable substitution. Keys should match the placeholders in the `data` string.
-- `data`: a string containing placeholders for variable substitution. Placeholders should match the keys in the `obj` object.
-- `variableIdentifier`: array of string that represents the variable placeholder in the `data` string. For example, if the placeholders in `data` string are in the format of `{{key}}`, then the `variableIdentifier` should be `"{{_}}"`.
-  default: `["#_#", "{{_}}", "%_%"]`
+**Arguments**
 
-## Usage
+-   `data` (string): The string which needs to be modified.
+-   `variables` (object): An object containing key-value pairs of variables to be replaced in the string. The keys should match the variables used in the `data` string.
+-   `variableIdentifiers` (string[]): An array of strings that should be used as variable identifiers in the `data` string. The default value is `["#_#", "{{_}}", "%_%"]`.
 
-Using the Replacer package is easy. Simply pass in an object containing your variables and their values, the variable syntax you want to use, and the string you want to replace the variables in.
 
-Here's an example:
+##### Returns
+-   (string): The modified string with replaced variables.
+
+## Examples
+
 
 ```js
-import inject from "variable-injector";
+import injector from 'variable-injector';
 
-const str =
-  "Welcome to our package, {{packageName}}! We are so excited to offer you a powerful tool for replacing variables in strings. With {{packageName}}, you can easily replace variables in your strings with any values you desire. Whether you are looking to personalize a message or update data in a template, {{packageName}} has got you covered. Give it a try and see the difference it can make in your projects.";
+const data = "My name is #name# and I am #age# years old";
+const variables = { name: "Rayhan", age: 25 };
+const modifiedData = injector(data, variables);
+console.log(modifiedData);
+// Output: "My name is Rayhan and I am 25 years old"
 
-const result = inject({ packageName: "Variable Injector" }, str);
-
-console.log(result);
 ```
+
+```js
+import injector from 'variable-injector';
+
+const data = "My name is #name# and I am #age# years old";
+const variables = { name: "Rayhan", age: 25 };
+const modifiedData = injector(data, variables,["#_#","{{_}}"]);
+console.log(modifiedData);
+// Output: "My name is Rayhan and I am 25 years old"
+```
+
+
+### Testing
+
+To test the package, you can use the jest package. Run the command
+
+
+```bash
+npm run test
+```
+
+This package is built using TypeScript and it is well documented and tested.
+
+### Contributing
+
+We welcome contributions to the Replacer package. If you have an idea for a new feature or find a bug, please open an issue or submit a pull request on the [GitHub repository](https://github.com/kingRayhan/variable-injector).
+
+### License
+
+The Replacer package is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+### Conclusion
+
+The Replacer package is a powerful and flexible tool for replacing variables in strings. It's easy to use, supports any data type, and allows you to customize the variable syntax to your liking. Give it a try and see how it can help you in your projects!
