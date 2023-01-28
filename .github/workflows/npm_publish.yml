@@ -1,0 +1,16 @@
+on:
+  release:
+    types: [published]
+    
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+#     - name: Authenticate with npm
+#       run: echo "//registry.npmjs.org/:_authToken=\${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+    - name: Install dependencies
+      run: npm install && npm ci
