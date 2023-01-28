@@ -1,0 +1,24 @@
+{
+  "name": "string-variable-replacer",
+  "version": "1.0.0",
+  "description": "A simple and powerful string replacement utility for TypeScript/Javascript. With this package, you can replace variables in a string with their corresponding values from an object. It supports fully customizable variable identifiers and can handle spaces within the variable names, making it easy to use in any type of project.",
+  "main": "lib/index.js",
+  "author": {
+    "name": "King Rayhan",
+    "email": "rayhan.dev.bd@gmail.com",
+    "url": "https://rayhan.dev"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "jest": "^29.4.1",
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.9.4"
+  }
+}
