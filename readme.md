@@ -4,7 +4,7 @@ The `variable-injector` package is a powerful tool for replacing variables in st
 
 ### Features
 
-- **Flexible variable syntax**: The Replacer package supports any variable syntax you want to use, whether it's `{{variable}}`, `#variable#`, or `%variable%`. Simply pass in your desired syntax as the second argument to the `replacer()` function.
+- **Flexible variable syntax**: The Replacer package supports any variable syntax you want to use, whether it's `{{variable}}`, `#variable#`, or `%variable%`. Simply pass in your desired syntax as the second argument to the `injector()` function.
 - **Supports any data type**: The Replacer package can handle any data type as values for the variables, whether it's a string, number, or even an object.
 - **Easy to use**: The Replacer package is designed to be easy to use, with a simple and intuitive API.
 
